@@ -6,7 +6,6 @@ namespace LuaT\Pattern;
 use function array_merge;
 use function array_map;
 use function implode;
-use function sprintf;
 
 class OrPattern extends SimplePattern
 {
@@ -15,7 +14,7 @@ class OrPattern extends SimplePattern
         $patterns = array_merge([$pattern1], [$pattern2], $additional);
 
         $nonCapturingGroups = array_map(
-            fn ($pattern) => sprintf('(?:%s)', (string) $pattern),
+            fn ($pattern) => new NonCapturingGroupPattern($pattern),
             $patterns
         );
 
