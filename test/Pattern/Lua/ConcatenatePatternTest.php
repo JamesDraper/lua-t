@@ -1,21 +1,23 @@
 <?php
 declare(strict_types=1);
 
-namespace Test\Pattern;
+namespace Test\Pattern\Lua;
 
-use LuaT\Pattern\CommaPattern;
+use LuaT\Pattern\Lua\ConcatenatePattern;
 
-class CommaPatternTest extends PatternTestCase
+use Test\Pattern\PatternTestCase;
+
+class ConcatenatePatternTest extends PatternTestCase
 {
     public function getPatternClass(): string
     {
-        return CommaPattern::class;
+        return ConcatenatePattern::class;
     }
 
     public function providerMatchingSequences(): array
     {
         return [
-            ['a,a', ','],
+            ['a..a', '..'],
         ];
     }
 

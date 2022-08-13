@@ -1,23 +1,23 @@
 <?php
 declare(strict_types=1);
 
-namespace Test\Pattern;
+namespace Test\Pattern\Lua;
 
-use LuaT\Pattern\NewLinePattern;
+use LuaT\Pattern\Lua\DotPattern;
 
-class NewLinePatternTest extends PatternTestCase
+use Test\Pattern\PatternTestCase;
+
+class DotPatternTest extends PatternTestCase
 {
     public function getPatternClass(): string
     {
-        return NewLinePattern::class;
+        return DotPattern::class;
     }
 
     public function providerMatchingSequences(): array
     {
         return [
-            ["a\r\na", "\r\n"],
-            ["a\na", "\n"],
-            ["a\ra", "\r"],
+            ['a.a', '.'],
         ];
     }
 

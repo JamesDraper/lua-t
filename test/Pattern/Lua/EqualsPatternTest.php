@@ -1,9 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Test\Pattern;
+namespace Test\Pattern\Lua;
 
-use LuaT\Pattern\EqualsPattern;
+use LuaT\Pattern\Lua\EqualsPattern;
+
+use Test\Pattern\PatternTestCase;
 
 class EqualsPatternTest extends PatternTestCase
 {
