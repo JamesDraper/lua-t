@@ -1,0 +1,18 @@
+{
+    "autoload": {
+        "psr-4": {
+            "LuaT\\": "src"
+        }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.7",
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "test": ["@phpunit", "@phpcs"],
+        "phpcs": ["@phpcs.src", "@phpcs.test"],
+        "phpcs.src": "phpcs src --standard=phpcs.src.xml",
+        "phpcs.test": "phpcs test --standard=phpcs.test.xml",
+        "phpunit": "phpunit"
+    }
+}
