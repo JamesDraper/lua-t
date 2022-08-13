@@ -5,20 +5,20 @@ namespace Test\Pattern;
 
 use PHPUnit\Framework\TestCase;
 
-use LuaT\Pattern\Equals;
+use LuaT\Pattern\EqualsPattern;
 
 use function preg_match;
 
-class EqualsTest extends TestCase
+class EqualsPatternTest extends TestCase
 {
-    private Equals $equals;
+    private EqualsPattern $equalsPattern;
 
     /**
      * @test
      */
     public function it_should_match_concatenate_sequences(): void
     {
-        preg_match('~' . $this->equals . '~', 'a=a', $matches);
+        preg_match('~' . $this->equalsPattern . '~', 'a=a', $matches);
 
         $this->assertCount(1, $matches);
         $this->assertSame('=', $matches[0]);
@@ -29,7 +29,7 @@ class EqualsTest extends TestCase
      */
     public function it_should_not_match_non_concatenate_sequences(): void
     {
-        preg_match('~' . $this->equals . '~', 'aa', $matches);
+        preg_match('~' . $this->equalsPattern . '~', 'aa', $matches);
 
         $this->assertCount(0, $matches);
     }
@@ -38,6 +38,6 @@ class EqualsTest extends TestCase
     {
         parent::setUp();
 
-        $this->equals = new Equals;
+        $this->equalsPattern = new EqualsPattern;
     }
 }

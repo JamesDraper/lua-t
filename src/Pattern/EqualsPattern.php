@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace LuaT\Pattern;
 
-class Equals extends SimplePattern
+class EqualsPattern extends SimplePattern
 {
     public function __construct()
     {
