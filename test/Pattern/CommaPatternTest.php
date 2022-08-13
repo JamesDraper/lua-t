@@ -5,20 +5,20 @@ namespace Test\Pattern;
 
 use PHPUnit\Framework\TestCase;
 
-use LuaT\Pattern\Comma;
+use LuaT\Pattern\CommaPattern;
 
 use function preg_match;
 
-class CommaTest extends TestCase
+class CommaPatternTest extends TestCase
 {
-    private Comma $comma;
+    private CommaPattern $commaPattern;
 
     /**
      * @test
      */
     public function it_should_match_concatenate_sequences(): void
     {
-        preg_match('~' . $this->comma . '~', 'a,a', $matches);
+        preg_match('~' . $this->commaPattern . '~', 'a,a', $matches);
 
         $this->assertCount(1, $matches);
         $this->assertSame(',', $matches[0]);
@@ -29,7 +29,7 @@ class CommaTest extends TestCase
      */
     public function it_should_not_match_non_concatenate_sequences(): void
     {
-        preg_match('~' . $this->comma . '~', 'aa', $matches);
+        preg_match('~' . $this->commaPattern . '~', 'aa', $matches);
 
         $this->assertCount(0, $matches);
     }
@@ -38,6 +38,6 @@ class CommaTest extends TestCase
     {
         parent::setUp();
 
-        $this->comma = new Comma;
+        $this->commaPattern = new CommaPattern;
     }
 }
