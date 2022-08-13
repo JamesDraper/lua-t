@@ -4,6 +4,11 @@
             "LuaT\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "test"
+        }
+    },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.7",
         "phpunit/phpunit": "^9.5"
