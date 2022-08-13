@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace LuaT\Pattern;
 
-class CommaPattern extends SimplePattern
+class CommaPattern extends NonCapturingGroupPattern
 {
     public function __construct()
     {

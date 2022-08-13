@@ -7,7 +7,7 @@ use function array_merge;
 use function array_map;
 use function implode;
 
-class OrPattern extends SimplePattern
+class OrPattern extends NonCapturingGroupPattern
 {
     public function __construct(string|Pattern $pattern1, string|Pattern $pattern2, string|Pattern ...$additional)
     {
