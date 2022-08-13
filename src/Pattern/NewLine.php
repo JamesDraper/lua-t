@@ -5,19 +5,14 @@ namespace LuaT\Pattern;
 
 use function implode;
 
-class NewLine implements Pattern
+class NewLine extends SimplePattern
 {
     private const CHARS = ["\r\n", "\n", "\r"];
 
-    private string $pattern;
-
     public function __construct()
     {
-        $this->pattern = implode('|', self::CHARS);
-    }
+        $pattern = implode('|', self::CHARS);
 
-    public function __toString(): string
-    {
-        return $this->pattern;
+        parent::__construct($pattern);
     }
 }

@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace LuaT\Pattern;
 
-class Equals implements Pattern
+class Equals extends SimplePattern
 {
-    public function __toString(): string
+    public function __construct()
     {
-        return '=';
+        parent::__construct('=');
     }
 }

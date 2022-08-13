@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace LuaT\Pattern;
 
-class Comma implements Pattern
+class Comma extends SimplePattern
 {
-    public function __toString(): string
+    public function __construct()
     {
-        return ',';
+        parent::__construct(',');
     }
 }
