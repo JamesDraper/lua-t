@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace LuaT\Pattern;
 
-class Concatenate extends SimplePattern
+class ConcatenatePattern extends SimplePattern
 {
     public function __construct()
     {
