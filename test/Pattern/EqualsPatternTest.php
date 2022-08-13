@@ -3,13 +3,9 @@ declare(strict_types=1);
 
 namespace Test\Pattern;
 
-use PHPUnit\Framework\TestCase;
-
 use LuaT\Pattern\EqualsPattern;
 
-use function preg_match;
-
-class EqualsPatternTest extends TestCase
+class EqualsPatternTest extends PatternTestCase
 {
     private EqualsPattern $equalsPattern;
 
@@ -39,5 +35,24 @@ class EqualsPatternTest extends TestCase
         parent::setUp();
 
         $this->equalsPattern = new EqualsPattern;
+    }
+
+    public function getPatternClass(): string
+    {
+        return EqualsPattern::class;
+    }
+
+    public function providerMatchingSequences(): array
+    {
+        return [
+            ['a=a', '='],
+        ];
+    }
+
+    public function providerNonMatchingSequences(): array
+    {
+        return [
+            ['aa'],
+        ];
     }
 }

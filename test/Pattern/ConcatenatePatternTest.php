@@ -3,41 +3,26 @@ declare(strict_types=1);
 
 namespace Test\Pattern;
 
-use PHPUnit\Framework\TestCase;
-
 use LuaT\Pattern\ConcatenatePattern;
 
-use function preg_match;
-
-class ConcatenatePatternTest extends TestCase
+class ConcatenatePatternTest extends PatternTestCase
 {
-    private ConcatenatePattern $concatenatePattern;
-
-    /**
-     * @test
-     */
-    public function it_should_match_concatenate_sequences(): void
+    public function getPatternClass(): string
     {
-        preg_match('~' . $this->concatenatePattern . '~', 'a..a', $matches);
-
-        $this->assertCount(1, $matches);
-        $this->assertSame('..', $matches[0]);
+        return ConcatenatePattern::class;
     }
 
-    /**
-     * @test
-     */
-    public function it_should_not_match_non_concatenate_sequences(): void
+    public function providerMatchingSequences(): array
     {
-        preg_match('~' . $this->concatenatePattern . '~', 'aa', $matches);
-
-        $this->assertCount(0, $matches);
+        return [
+            ['a..a', '..'],
+        ];
     }
 
-    protected function setUp(): void
+    public function providerNonMatchingSequences(): array
     {
-        parent::setUp();
-
-        $this->concatenatePattern = new ConcatenatePattern;
+        return [
+            ['aa'],
+        ];
     }
 }

@@ -3,29 +3,16 @@ declare(strict_types=1);
 
 namespace Test\Pattern;
 
-use PHPUnit\Framework\TestCase;
-
 use LuaT\Pattern\NewLinePattern;
 
-use function preg_match;
-
-class NewLinePatternTest extends TestCase
+class NewLinePatternTest extends PatternTestCase
 {
-    private NewLinePattern $newLinePattern;
-
-    /**
-     * @test
-     * @dataProvider providerSourceStrings
-     */
-    public function it_should_match_new_line_sequences(string $string, string $expected): void
+    public function getPatternClass(): string
     {
-        preg_match('~' . $this->newLinePattern . '~', $string, $matches);
-
-        $this->assertCount(1, $matches);
-        $this->assertSame($expected, $matches[0]);
+        return NewLinePattern::class;
     }
 
-    public function providerSourceStrings(): array
+    public function providerMatchingSequences(): array
     {
         return [
             ["a\r\na", "\r\n"],
@@ -34,20 +21,10 @@ class NewLinePatternTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     */
-    public function it_should_not_match_new_line_sequences_that_do_not_exist(): void
+    public function providerNonMatchingSequences(): array
     {
-        preg_match('~' . $this->newLinePattern . '~', 'aa', $matches);
-
-        $this->assertCount(0, $matches);
-    }
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->newLinePattern = new NewLinePattern;
+        return [
+            ['aa'],
+        ];
     }
 }
