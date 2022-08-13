@@ -10,6 +10,7 @@ class Index
     public const CONCATENATE = 2;
     public const EQUALS = 3;
     public const COLON = 4;
+    public const DOT = 5;
 
     final private function __construct()
     {
