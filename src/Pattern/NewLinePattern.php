@@ -3,9 +3,7 @@ declare(strict_types=1);
 
 namespace LuaT\Pattern;
 
-use function implode;
-
-class NewLine extends SimplePattern
+class NewLinePattern extends SimplePattern
 {
     private const CHARS = ["\r\n", "\n", "\r"];
 
