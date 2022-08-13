@@ -11,8 +11,8 @@ class NewLine extends SimplePattern
 
     public function __construct()
     {
-        $pattern = implode('|', self::CHARS);
+        $orPattern = new OrPattern(...self::CHARS);
 
-        parent::__construct($pattern);
+        parent::__construct($orPattern);
     }
 }
