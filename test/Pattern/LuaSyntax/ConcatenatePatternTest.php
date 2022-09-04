@@ -1,23 +1,23 @@
 <?php
 declare(strict_types=1);
 
-namespace Test\Pattern\Lua;
+namespace Test\Pattern\LuaSyntax;
 
-use LuaT\Pattern\Lua\DotPattern;
+use LuaT\Pattern\LuaSyntax\ConcatenatePattern;
 
 use Test\Pattern\PatternTestCase;
 
-class DotPatternTest extends PatternTestCase
+class ConcatenatePatternTest extends PatternTestCase
 {
     public function getPatternClass(): string
     {
-        return DotPattern::class;
+        return ConcatenatePattern::class;
     }
 
     public function providerMatchingSequences(): array
     {
         return [
-            ['a.a', '.'],
+            ['a..a', '..'],
         ];
     }
 

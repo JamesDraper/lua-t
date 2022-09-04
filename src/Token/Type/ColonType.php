@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace LuaT\Token\Type;
 
-use LuaT\Pattern\Lua\ColonPattern;
+use LuaT\Pattern\LuaSyntax\ColonPattern;
 use LuaT\Token\Index;
 
 class ColonType extends Type

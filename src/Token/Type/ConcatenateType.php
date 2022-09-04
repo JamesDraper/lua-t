@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace LuaT\Token\Type;
 
-use LuaT\Pattern\Lua\ConcatenatePattern;
+use LuaT\Pattern\LuaSyntax\ConcatenatePattern;
 use LuaT\Token\Index;
 
 class ConcatenateType extends Type

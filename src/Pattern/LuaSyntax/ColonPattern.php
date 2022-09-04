@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace LuaT\Pattern\Lua;
+namespace LuaT\Pattern\LuaSyntax;
 
 use LuaT\Pattern\NonCapturingGroupPattern;
 
-class CommaPattern extends NonCapturingGroupPattern
+class ColonPattern extends NonCapturingGroupPattern
 {
     public function __construct()
     {
-        parent::__construct(',');
+        parent::__construct(':');
     }
 }

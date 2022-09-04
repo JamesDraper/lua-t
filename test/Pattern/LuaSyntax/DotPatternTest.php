@@ -1,23 +1,23 @@
 <?php
 declare(strict_types=1);
 
-namespace Test\Pattern\Lua;
+namespace Test\Pattern\LuaSyntax;
 
-use LuaT\Pattern\Lua\ColonPattern;
+use LuaT\Pattern\LuaSyntax\DotPattern;
 
 use Test\Pattern\PatternTestCase;
 
-class ColonPatternTest extends PatternTestCase
+class DotPatternTest extends PatternTestCase
 {
     public function getPatternClass(): string
     {
-        return ColonPattern::class;
+        return DotPattern::class;
     }
 
     public function providerMatchingSequences(): array
     {
         return [
-            ['a:a', ':'],
+            ['a.a', '.'],
         ];
     }
 

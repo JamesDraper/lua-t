@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace LuaT\Token\Type;
 
-use LuaT\Pattern\Lua\EqualsPattern;
+use LuaT\Pattern\LuaSyntax\EqualsPattern;
 use LuaT\Token\Index;
 
 class EqualsType extends Type

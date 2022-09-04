@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Test\Pattern\Lua;
+namespace Test\Pattern\LuaSyntax;
 
-use LuaT\Pattern\Lua\EqualsPattern;
+use LuaT\Pattern\LuaSyntax\EqualsPattern;
 
 use Test\Pattern\PatternTestCase;
 

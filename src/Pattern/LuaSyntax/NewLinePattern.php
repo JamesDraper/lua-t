@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace LuaT\Pattern\Lua;
+namespace LuaT\Pattern\LuaSyntax;
 
 use LuaT\Pattern\OrPattern;
 
