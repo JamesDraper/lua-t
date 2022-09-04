@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace LuaT\Pattern\LuaSyntax;
 
-use LuaT\Pattern\NonCapturingGroupPattern;
+use LuaT\Pattern\SimplePattern;
 
-class ColonPattern extends NonCapturingGroupPattern
+class ColonPattern extends SimplePattern
 {
     public function __construct()
     {

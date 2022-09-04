@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace LuaT\Pattern\LuaSyntax;
 
-use LuaT\Pattern\NonCapturingGroupPattern;
+use LuaT\Pattern\SimplePattern;
 
-class EqualsPattern extends NonCapturingGroupPattern
+class EqualsPattern extends SimplePattern
 {
     public function __construct()
     {
