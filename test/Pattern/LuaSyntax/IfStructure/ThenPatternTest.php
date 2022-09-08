@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Test\Pattern\LuaSyntax;
+namespace Test\Pattern\LuaSyntax\IfStructure;
 
-use LuaT\Pattern\LuaSyntax\ThenPattern;
+use LuaT\Pattern\LuaSyntax\IfStructure\ThenPattern;
 use Test\Pattern\PatternTestCase;
 
 class ThenPatternTest extends PatternTestCase

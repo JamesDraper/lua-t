@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Test\Pattern\LuaSyntax;
+namespace Test\Pattern\LuaSyntax\IfStructure;
 
-use LuaT\Pattern\LuaSyntax\ElsePattern;
+use LuaT\Pattern\LuaSyntax\IfStructure\ElsePattern;
 use Test\Pattern\PatternTestCase;
 
 class ElsePatternTest extends PatternTestCase
