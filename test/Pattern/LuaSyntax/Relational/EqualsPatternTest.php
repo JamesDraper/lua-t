@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Test\Pattern\LuaSyntax\Comparison;
+namespace Test\Pattern\LuaSyntax\Relational;
 
-use LuaT\Pattern\LuaSyntax\Comparison\EqualsPattern;
+use LuaT\Pattern\LuaSyntax\Relational\EqualsPattern;
 
 use Test\Pattern\PatternTestCase;
 

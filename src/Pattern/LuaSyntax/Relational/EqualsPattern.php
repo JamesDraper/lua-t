@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace LuaT\Pattern\LuaSyntax\Comparison;
+namespace LuaT\Pattern\LuaSyntax\Relational;
 
 use LuaT\Pattern\SimplePattern;
 
