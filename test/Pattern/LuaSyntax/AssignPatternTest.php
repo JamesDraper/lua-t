@@ -3,15 +3,15 @@ declare(strict_types=1);
 
 namespace Test\Pattern\LuaSyntax;
 
-use LuaT\Pattern\LuaSyntax\EqualsPattern;
+use LuaT\Pattern\LuaSyntax\AssignPattern;
 
 use Test\Pattern\PatternTestCase;
 
-class EqualsPatternTest extends PatternTestCase
+class AssignPatternTest extends PatternTestCase
 {
     public function getPatternClass(): string
     {
-        return EqualsPattern::class;
+        return AssignPattern::class;
     }
 
     public function providerMatchingSequences(): array
