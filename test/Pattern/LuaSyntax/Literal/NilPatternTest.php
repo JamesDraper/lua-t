@@ -1,9 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Test\Pattern\LuaSyntax;
+namespace Test\Pattern\LuaSyntax\Literal;
 
-use LuaT\Pattern\LuaSyntax\NilPattern;
+use LuaT\Pattern\LuaSyntax\Literal\NilPattern;
+
 use Test\Pattern\PatternTestCase;
 
 class NilPatternTest extends PatternTestCase

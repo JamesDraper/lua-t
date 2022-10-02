@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace LuaT\Pattern\LuaSyntax;
+namespace LuaT\Pattern\LuaSyntax\Literal;
 
 use LuaT\Pattern\WholeWordPattern;
 
