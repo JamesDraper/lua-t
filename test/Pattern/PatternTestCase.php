@@ -21,7 +21,7 @@ abstract class PatternTestCase extends TestCase
      */
     public function it_should_parse_matching_character_sequences(string $sequence, string $expected): void
     {
-        preg_match('~' . $this->pattern . '~', $sequence, $matches);
+        preg_match('#' . $this->pattern . '#', $sequence, $matches);
 
         $this->assertCount(1, $matches);
         $this->assertSame($expected, $matches[0]);
@@ -35,7 +35,7 @@ abstract class PatternTestCase extends TestCase
      */
     public function it_should_not_parse_non_matching_character_sequences(string $sequence): void
     {
-        preg_match('~' . $this->pattern . '~', $sequence, $matches);
+        preg_match('#' . $this->pattern . '#', $sequence, $matches);
 
         $this->assertCount(0, $matches);
     }
