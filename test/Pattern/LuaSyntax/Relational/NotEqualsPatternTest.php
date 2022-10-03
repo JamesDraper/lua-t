@@ -27,4 +27,9 @@ class NotEqualsPatternTest extends PatternTestCase
             ['aa'],
         ];
     }
+
+    protected function delimiter(): string
+    {
+        return '#';
+    }
 }
