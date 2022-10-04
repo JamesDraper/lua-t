@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace LuaT\Pattern\LuaSyntax;
 
-use LuaT\Pattern\NonCapturingGroupPattern;
+use LuaT\Pattern\Group\NonCapturingPattern;
 use LuaT\Pattern\SimplePattern;
 use LuaT\Pattern\OrPattern;
 
@@ -16,7 +16,7 @@ class WhiteSpacePattern extends SimplePattern
 
     public function __construct()
     {
-        $characters = new NonCapturingGroupPattern(
+        $characters = new NonCapturingPattern(
             new OrPattern(...static::CHARACTERS)
         );
 

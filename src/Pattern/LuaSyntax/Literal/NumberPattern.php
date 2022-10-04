@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace LuaT\Pattern\LuaSyntax\Literal;
 
-use LuaT\Pattern\NonCapturingGroupPattern;
+use LuaT\Pattern\Group\NonCapturingPattern;
 use LuaT\Pattern\SimplePattern;
 
 class NumberPattern extends SimplePattern
@@ -16,7 +16,7 @@ class NumberPattern extends SimplePattern
 
     public function __construct()
     {
-        $decimal = new NonCapturingGroupPattern(static::DECIMAL_PART);
+        $decimal = new NonCapturingPattern(static::DECIMAL_PART);
 
         parent::__construct(static::NEGATIVE . static::WHOLE_PART . $decimal . '?');
     }
