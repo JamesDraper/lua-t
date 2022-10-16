@@ -5,7 +5,7 @@ namespace LuaT\Tokenizer\Token;
 
 use LuaT\Tokenizer\Pattern\Pattern;
 
-abstract class Type
+abstract class Token
 {
     private string $pattern;
 
