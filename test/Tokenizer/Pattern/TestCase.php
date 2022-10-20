@@ -14,6 +14,15 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
 
     /**
      * @test
+     */
+    public function it_should_produce_a_valid_string_pattern(): void
+    {
+        $this->assertNotFalse(@preg_match($this->pattern, ''));
+    }
+
+    /**
+     * @test
+     * @depends it_should_produce_a_valid_string_pattern
      * @dataProvider providerMatchingSequences
      */
     public function it_should_parse_matching_character_sequences(string $sequence, string $expected): void
@@ -41,6 +50,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
 
     /**
      * @test
+     * @depends it_should_produce_a_valid_string_pattern
      * @dataProvider providerNonMatchingSequences
      */
     public function it_should_not_parse_non_matching_character_sequences(string $sequence): void
