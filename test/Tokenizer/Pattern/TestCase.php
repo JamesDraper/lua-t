@@ -6,7 +6,7 @@ namespace Test\Tokenizer\Pattern;
 use function array_shift;
 use function preg_match;
 
-abstract class TestCase extends \PHPUnit\Framework\TestCase
+abstract class TestCase extends \Test\TestCase
 {
     private string $pattern;
 

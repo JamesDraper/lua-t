@@ -5,7 +5,7 @@ namespace Test\Tokenizer;
 
 use LuaT\Tokenizer\GetValidDelimiters;
 
-use PHPUnit\Framework\TestCase;
+use Test\TestCase;
 
 use function preg_match;
 use function array_map;

@@ -8,9 +8,7 @@ use LuaT\Tokenizer\Pattern\Pattern;
 use LuaT\Tokenizer\MainPattern;
 use LuaT\Tokenizer\Token\Token;
 
-use PHPUnit\Framework\TestCase;
-
-use Prophecy\Prophet;
+use Test\TestCase;
 
 use function preg_match_all;
 use function array_shift;
@@ -20,15 +18,6 @@ use const PREG_OFFSET_CAPTURE;
 
 class MainPatternTest extends TestCase
 {
-    private Prophet $prophet;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->prophet = new Prophet;
-    }
-
     /**
      * @test
      */
@@ -152,7 +141,7 @@ class MainPatternTest extends TestCase
 
     private function makeTokenMock(string $pattern, int $priority, int $index): Token
     {
-        $mock = $this->prophet->prophesize(Token::class);
+        $mock = $this->makeMock(Token::class);
 
         $mock->getPattern()->willReturn($this->makePatternMock($pattern));
         $mock->getPriority()->willReturn($priority);
@@ -163,7 +152,7 @@ class MainPatternTest extends TestCase
 
     private function makePatternMock(string $pattern): Pattern
     {
-        $mock = $this->prophet->prophesize(Pattern::class);
+        $mock = $this->makeMock(Pattern::class);
 
         $mock->__toString()->willReturn($pattern);
 
@@ -172,7 +161,7 @@ class MainPatternTest extends TestCase
 
     private function makeGetValidDelimitersMock(string ...$validDelimiters): GetValidDelimiters
     {
-        $mock = $this->prophet->prophesize(GetValidDelimiters::class);
+        $mock = $this->makeMock(GetValidDelimiters::class);
 
         $mock->__invoke()->willReturn($validDelimiters);
 
