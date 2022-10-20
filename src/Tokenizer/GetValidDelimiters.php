@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace LuaT\Tokenizer;
 
-use LuaT\Tokenizer\Pattern\LuaSyntax\NewLinePattern;
-
 class GetValidDelimiters
 {
     public function __invoke(): array
@@ -12,7 +10,7 @@ class GetValidDelimiters
         $invalidChars = array_merge(
             array_map(fn (int $i): string => chr($i), range(0, 31)),
             ['(', ')', '[', ']', '{', '}', '<', '>', '\\', '/'],
-            [' ', "\t", ...NewLinePattern::CHARS],
+            [' ', "\t", ...NewLine::CHARS],
             range('A', 'Z'),
             range('a', 'z'),
             range(0, 9),

@@ -4,13 +4,12 @@ declare(strict_types=1);
 namespace LuaT\Tokenizer\Pattern\LuaSyntax;
 
 use LuaT\Tokenizer\Pattern\OrPattern;
+use LuaT\Tokenizer\NewLine;
 
 class NewLinePattern extends OrPattern
 {
-    public const CHARS = ["\r\n", "\n", "\r"];
-
     public function __construct()
     {
-        parent::__construct(...self::CHARS);
+        parent::__construct(...NewLine::CHARS);
     }
 }
