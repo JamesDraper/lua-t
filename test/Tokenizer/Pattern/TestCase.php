@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Test\Tokenizer\Pattern;
 
+use function array_shift;
 use function preg_match;
 
 abstract class TestCase extends \PHPUnit\Framework\TestCase
@@ -19,11 +20,24 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     {
         preg_match($this->pattern, $sequence, $matches);
 
-        $this->assertCount(1, $matches);
         $this->assertSame($expected, $matches[0] ?? null);
     }
 
     abstract public function providerMatchingSequences(): array;
+
+    /**
+     * @test
+     * @depends it_should_parse_matching_character_sequences
+     */
+    public function it_should_not_contain_capturing_groups(): void
+    {
+        $matching = $this->providerMatchingSequences();
+        $valid = array_shift($matching)[0];
+
+        @preg_match($this->pattern, $valid, $matches);
+
+        $this->assertCount(1, $matches);
+    }
 
     /**
      * @test
