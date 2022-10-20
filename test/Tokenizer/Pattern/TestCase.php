@@ -3,13 +3,11 @@ declare(strict_types=1);
 
 namespace Test\Tokenizer\Pattern;
 
-use LuaT\Tokenizer\Pattern\Pattern;
-
 use function preg_match;
 
 abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
-    private Pattern $pattern;
+    private string $pattern;
 
     abstract public function getPatternClass(): string;
 
@@ -19,10 +17,10 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
      */
     public function it_should_parse_matching_character_sequences(string $sequence, string $expected): void
     {
-        preg_match($this->delimiter() . $this->pattern . $this->delimiter(), $sequence, $matches);
+        preg_match($this->pattern, $sequence, $matches);
 
         $this->assertCount(1, $matches);
-        $this->assertSame($expected, $matches[0]);
+        $this->assertSame($expected, $matches[0] ?? null);
     }
 
     abstract public function providerMatchingSequences(): array;
@@ -33,7 +31,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
      */
     public function it_should_not_parse_non_matching_character_sequences(string $sequence): void
     {
-        preg_match($this->delimiter() . $this->pattern . $this->delimiter(), $sequence, $matches);
+        preg_match($this->pattern, $sequence, $matches);
 
         $this->assertCount(0, $matches);
     }
@@ -52,10 +50,11 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         parent::setUp();
     }
 
-    private function makePattern(): Pattern
+    private function makePattern(): string
     {
         $classPath = $this->getPatternClass();
+        $pattern = new $classPath;
 
-        return new $classPath;
+        return $this->delimiter() . $pattern . $this->delimiter();
     }
 }
