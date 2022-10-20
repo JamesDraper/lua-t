@@ -7,7 +7,7 @@ use LuaT\Tokenizer\Pattern\OrPattern;
 
 class NewLinePattern extends OrPattern
 {
-    private const CHARS = ["\r\n", "\n", "\r"];
+    public const CHARS = ["\r\n", "\n", "\r"];
 
     public function __construct()
     {
