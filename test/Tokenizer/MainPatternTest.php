@@ -40,6 +40,8 @@ class MainPatternTest extends TestCase
      */
     public function it_should_produce_a_pattern_which_can_parse_source(): void
     {
+        $getValidDelimiters = $this->makeGetValidDelimitersMock('~');
+
         $token1 = $this->makeTokenMock('a', 3, 1);
         $token2 = $this->makeTokenMock('b', 1, 2);
         $token3 = $this->makeTokenMock('c', 5, 3);
@@ -47,7 +49,7 @@ class MainPatternTest extends TestCase
         $token5 = $this->makeTokenMock('e', 4, 5);
 
         $mainPattern = new MainPattern(
-            $this->makeGetValidDelimitersMock('~'),
+            $getValidDelimiters,
             $token1,
             $token2,
             $token3,
