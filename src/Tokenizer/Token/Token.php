@@ -7,20 +7,20 @@ use LuaT\Tokenizer\Pattern\Pattern;
 
 abstract class Token
 {
-    private string $pattern;
+    private Pattern $pattern;
 
     private int $priority;
 
     private int $index;
 
-    public function __construct(int $priority, int $index, Pattern|string $pattern)
+    public function __construct(int $priority, int $index, Pattern $pattern)
     {
-        $this->pattern = (string) $pattern;
         $this->priority = $priority;
+        $this->pattern = $pattern;
         $this->index = $index;
     }
 
-    public function getPattern(): string
+    public function getPattern(): Pattern
     {
         return $this->pattern;
     }

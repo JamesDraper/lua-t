@@ -12,7 +12,7 @@ class CapturingPattern extends SimplePattern
 {
     public function __construct(Pattern|string $pattern)
     {
-        $pattern = sprintf('(?:%s)', (string) $pattern);
+        $pattern = sprintf('(%s)', (string) $pattern);
 
         parent::__construct($pattern);
     }
