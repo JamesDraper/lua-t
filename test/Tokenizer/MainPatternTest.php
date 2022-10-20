@@ -108,6 +108,68 @@ class MainPatternTest extends TestCase
 
     /**
      * @test
+     * @depends it_produces_a_valid_pattern
+     */
+    public function it_should_allow_tokens_to_take_precedence_over_other_tokens(): void
+    {
+        $getValidDelimiters = $this->makeGetValidDelimitersMock('~');
+
+        $token1 = $this->makeTokenMock('a', 1, 1);
+        $token2 = $this->makeTokenMock('b', 2, 2);
+        $token3 = $this->makeTokenMock('c', 3, 3);
+        $token4 = $this->makeTokenMock('d', 5, 4);
+        $token5 = $this->makeTokenMock('dd', 4, 5);
+
+        $mainPattern = new MainPattern(
+            $getValidDelimiters,
+            $token1,
+            $token2,
+            $token3,
+            $token4,
+            $token5
+        );
+
+        @preg_match_all($mainPattern->getPattern(), 'abcdd', $matches, PREG_OFFSET_CAPTURE);
+        @array_shift($matches);
+
+        $expected = [
+            [
+                ['a', 0],
+                ['', -1],
+                ['', -1],
+                ['', -1],
+            ],
+            [
+                ['', -1],
+                ['b', 1],
+                ['', -1],
+                ['', -1],
+            ],
+            [
+                ['', -1],
+                ['', -1],
+                ['c', 2],
+                ['', -1],
+            ],
+            [
+                ['', -1],
+                ['', -1],
+                ['', -1],
+                ['dd', 3],
+            ],
+            [
+                ['', -1],
+                ['', -1],
+                ['', -1],
+                ['', -1],
+            ],
+        ];
+
+        $this->assertSame($expected, $matches);
+    }
+
+    /**
+     * @test
      */
     public function it_should_order_indexes_by_priority(): void
     {
