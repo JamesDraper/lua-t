@@ -5,33 +5,11 @@ namespace LuaT\Tokenizer\Token;
 
 use LuaT\Tokenizer\Pattern\Pattern;
 
-abstract class Token
+interface Token
 {
-    private Pattern $pattern;
+    public function getPattern(): Pattern;
 
-    private int $priority;
+    public function getPriority(): int;
 
-    private int $index;
-
-    public function __construct(int $priority, int $index, Pattern $pattern)
-    {
-        $this->priority = $priority;
-        $this->pattern = $pattern;
-        $this->index = $index;
-    }
-
-    public function getPattern(): Pattern
-    {
-        return $this->pattern;
-    }
-
-    public function getPriority(): int
-    {
-        return $this->priority;
-    }
-
-    public function getIndex(): int
-    {
-        return $this->index;
-    }
+    public function getIndex(): int;
 }

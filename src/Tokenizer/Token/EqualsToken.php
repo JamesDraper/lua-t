@@ -6,7 +6,7 @@ namespace LuaT\Tokenizer\Token;
 use LuaT\Tokenizer\Pattern\LuaSyntax\AssignPattern;
 use LuaT\Token\Index;
 
-class EqualsToken extends Token
+class EqualsToken extends SimpleToken
 {
     public function __construct()
     {

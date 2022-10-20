@@ -6,7 +6,7 @@ namespace LuaT\Tokenizer\Token;
 use LuaT\Tokenizer\Pattern\LuaSyntax\CommaPattern;
 use LuaT\Token\Index;
 
-class CommaToken extends Token
+class CommaToken extends SimpleToken
 {
     public function __construct()
     {

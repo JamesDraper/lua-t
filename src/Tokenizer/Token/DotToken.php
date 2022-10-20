@@ -6,7 +6,7 @@ namespace LuaT\Tokenizer\Token;
 use LuaT\Tokenizer\Pattern\LuaSyntax\DotPattern;
 use LuaT\Token\Index;
 
-class DotToken extends Token
+class DotToken extends SimpleToken
 {
     public function __construct()
     {

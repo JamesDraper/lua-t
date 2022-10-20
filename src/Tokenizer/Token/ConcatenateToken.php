@@ -6,7 +6,7 @@ namespace LuaT\Tokenizer\Token;
 use LuaT\Tokenizer\Pattern\LuaSyntax\ConcatenatePattern;
 use LuaT\Token\Index;
 
-class ConcatenateToken extends Token
+class ConcatenateToken extends SimpleToken
 {
     public function __construct()
     {

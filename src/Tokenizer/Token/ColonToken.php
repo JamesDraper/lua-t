@@ -6,7 +6,7 @@ namespace LuaT\Tokenizer\Token;
 use LuaT\Tokenizer\Pattern\LuaSyntax\ColonPattern;
 use LuaT\Token\Index;
 
-class ColonToken extends Token
+class ColonToken extends SimpleToken
 {
     public function __construct()
     {

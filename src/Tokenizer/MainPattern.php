@@ -4,13 +4,11 @@ declare(strict_types=1);
 namespace LuaT\Tokenizer;
 
 use LuaT\Tokenizer\Pattern\Group\CapturingPattern;
-use LuaT\Tokenizer\Pattern\Group\NonCapturingPattern;
 use LuaT\Tokenizer\Pattern\OrPattern;
 use LuaT\Tokenizer\Pattern\Pattern;
 use LuaT\Tokenizer\Token\Token;
 
 use function str_contains;
-use function array_merge;
 use function array_map;
 use function usort;
 
@@ -23,14 +21,8 @@ class MainPattern
      */
     private array $indexes;
 
-    public function __construct(
-        GetValidDelimiters $getValidDelimiters,
-        Token $token1,
-        Token $token2,
-        Token ...$additional
-    ) {
-        $tokens = array_merge([$token1, $token2], $additional);
-
+    public function __construct(GetValidDelimiters $getValidDelimiters, Token ...$tokens)
+    {
         $sorted = $this->sortTokens($tokens);
 
         $this->setPattern($getValidDelimiters, $sorted);
