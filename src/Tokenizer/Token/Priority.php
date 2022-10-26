@@ -9,7 +9,7 @@ class Priority
     public const COMMA = 1;
     public const CONCATENATE = 2;
     public const DOT = 3;
-    public const EQUALS = 3;
+    public const EQUALS = 4;
 
     final private function __construct()
     {
